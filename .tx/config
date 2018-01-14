@@ -1,0 +1,10 @@
+[main]
+host = https://www.transifex.com
+
+[website-122.translations-pot]
+file_filter = module/Application/language/<lang>.po
+minimum_perc = 0
+source_file = module/Application/language/translations.pot
+source_lang = en
+type = PO
+
