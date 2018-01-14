@@ -11,7 +11,7 @@ function generate {
         --force-po
 
     # Push .pot to Transifex
-    tx push --source
+    tx push --source --no-interactive
 }
 
 function sync {
