@@ -1,6 +1,29 @@
 #!/bin/bash
-find ./module -iname "*.phtml" | xargs xgettext \
-    --language=PHP \
-    --keyword=translate \
-    --output=./module/Application/language/translations.pot \
-    --force-po
+
+function generate {
+    echo "Pushing untranslated string to Transifex..."
+
+    # Generate .pot file
+    find ./module -iname "*.phtml" | xargs xgettext \
+        --language=PHP \
+        --keyword=translate \
+        --output=./module/Application/language/translations.pot \
+        --force-po
+
+    # Push .pot to Transifex
+    tx push --source
+}
+
+function sync {
+    echo "Pulling latest translations from Transifex..."
+
+    # Pull latest .po files from Transifex
+    tx pull --all
+
+    # Convert .po into .mo files
+    for f in $(find ./module/Application/language -name \*.po); do
+        msgfmt -o ${f%.po}.mo $f
+    done
+}
+
+"$@"
