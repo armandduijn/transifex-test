@@ -1,0 +1,6 @@
+#!/bin/bash
+find ./module -iname "*.phtml" | xargs xgettext \
+    --language=PHP \
+    --keyword=translate \
+    --output=./module/Application/language/translations.pot \
+    --force-po
