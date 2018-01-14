@@ -5,3 +5,4 @@ data/cache/*
 !data/cache/.gitkeep
 phpunit.xml
 module/Application/language/*.po
+module/Application/language/*.mo

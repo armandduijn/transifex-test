@@ -61,9 +61,9 @@ return [
         'locale' => 'en',
         'translation_file_patterns' => [
             [
-                'type' => 'phpArray',
+                'type' => 'gettext',
                 'base_dir' => __DIR__ . '/../language',
-                'pattern' => '%s.php',
+                'pattern' => '%s.mo',
             ]
         ],
     ],
